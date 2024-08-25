@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cardExpiryDisplay = document.getElementById('card-expiry');
     const cardBrand = document.getElementById('card-brand')
     const cvvHolderDisplay = document.querySelector('#cvv > h2');
+    const revImgCvv = document.querySelector('.card-brand-rev')
 
 
     cardNumberInput.addEventListener('input', function(){
@@ -18,15 +19,19 @@ document.addEventListener("DOMContentLoaded", function () {
             switch(this.value){
                 case('5'): 
                 cardBrand.src = "img/card-type/mastercard.png";
+                revImgCvv.src = "img/card-type/mastercard.png"
                 break;
                 case('4'):
                 cardBrand.src = "img/card-type/visa.png";
+                revImgCvv.src = "img/card-type/visa.png"
                 break;
                 case('6'):
                 cardBrand.src = "img/card-type/discover.png";
+                revImgCvv.src = "img/card-type/discover.png"
                 break;
                 case('3'):
                 cardBrand.src = "img/card-type/amex.png";
+                revImgCvv.src = "img/card-type/amex.png"
                 break;
             }
         }
