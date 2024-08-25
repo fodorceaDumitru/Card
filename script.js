@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cardHolderDisplay = document.getElementById('card-holder');
     const cardExpiryDisplay = document.getElementById('card-expiry');
     const cardBrand = document.getElementById('card-brand')
+    const cvvHolderDisplay = document.querySelector('#cvv > h2');
 
 
     cardNumberInput.addEventListener('input', function(){
@@ -54,10 +55,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cardCvvInput.addEventListener('focus', function(){
         document.querySelector('.card').style.transform = 'rotateY(180deg)';
+        document.querySelector('.cardBack').style.transform = 'rotateY(0deg)';
     });
 
     cardCvvInput.addEventListener('blur', function(){
         document.querySelector('.card').style.transform = 'rotateY(0deg)';
+        document.querySelector('.cardBack').style.transform = 'rotateY(180deg)';
+    });
+    cardCvvInput.addEventListener('input', function () {
+        cvvHolderDisplay.innerHTML = cardCvvInput.value
+        
     });
 
     cardExpiryMonth.addEventListener('click', ()=>{

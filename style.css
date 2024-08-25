@@ -43,10 +43,11 @@ body {
 }
 
 .card {
-    margin-bottom: -130px;
+    position: absolute;
+    bottom: 440px;
     width: 360px;
     height: 200px;
-    background-image: url(../card/img/card-background/6.jpeg);
+    background-image: url(../img/card-background/6.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 12px;
@@ -58,9 +59,66 @@ body {
     transition: transform 0.5s;
     transform-style: preserve-3d;
     box-shadow: 0 15px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
 }
-
+.cardBack{
+    position: absolute;
+    bottom: 440px;
+    width: 360px;
+    height: 200px;
+    background-image: url(../img/card-background/6.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 12px;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    transition: transform 0.5s;
+    /* transform-style: preserve-3d; */
+    box-shadow: 0 15px 8px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+#black-line{
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    left: 0px;
+}
+#cvv{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+}
+#cvv > h2{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 15px;
+color: black;
+background-color: white;
+width: 100%;
+height: 40px;
+border-radius: 3px;
+margin: 0;
+padding-right: 5px;
+}
+#cvv > h5{
+margin-bottom: 10px;
+}
+.cardBack > img{
+    width: 100px;
+    margin-bottom: 20px
+}
 .logo-cards {
     display: flex;
     justify-content: space-between;
