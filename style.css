@@ -46,7 +46,7 @@ body {
     margin-bottom: -130px;
     width: 360px;
     height: 200px;
-    background-image: url(../img/card-background/6.jpeg);
+    background-image: url(../Card/img/card-background/6.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 12px;
@@ -71,6 +71,10 @@ body {
     letter-spacing: 0.2rem;
     margin-top: -25px;
     display: block;
+}
+
+.marking{
+    border: 1px solid white
 }
 
 .card-details-subtitle {
