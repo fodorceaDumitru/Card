@@ -1,0 +1,178 @@
+body {
+    font-family: "Work Sans", sans-serif;
+    background-color: #e0e8f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+.brand {
+    max-height: 50px;
+    max-width: 100px;
+}
+
+.chip {
+    max-height: 50px;
+}
+
+.card-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    padding-top: 150px;
+}
+
+.card-display {
+    width: 400px;
+    margin-bottom: 20px;
+    text-align: start;
+}
+
+.card {
+    margin-bottom: -130px;
+    width: 360px;
+    height: 200px;
+    background-image: url(../img/card-background/6.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 12px;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    box-shadow: 0 15px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.logo-cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-number {
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    margin-top: -25px;
+    display: block;
+}
+
+.card-details-subtitle {
+    letter-spacing: 2.5px;
+    margin-bottom: -55px;
+    width: 360px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.5rem;
+}
+
+.card-details {
+    width: 360px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.card-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 450px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.cvv {
+    padding-top: 5px;
+    padding-right: 97px;
+    font-size: 10px;
+}
+
+.form-group {
+    font-size: 12px;
+}
+
+.form-group input,
+.form-group select {
+    width: 430px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+
+.expiry-group {
+    display: flex;
+    gap: 15px;
+}
+
+.expiry-group select {
+    max-height: 45px;
+    max-width: 40%;
+    font-size: 0.9rem;
+    flex: 1;
+}
+
+.card-cvv {
+    margin-left: 25px;
+    max-width: 100px;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 0;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
