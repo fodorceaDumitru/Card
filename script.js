@@ -84,8 +84,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     document.getElementById('card-number-input').addEventListener('input', function () {
-        let inputValue = this.value.replace(/\D/g, '');
-        let formattedValue = formatCardNumber(inputValue);
+        let inputValue = this.value;
+        let onlyNumbers = '';
+    
+        // Перебор каждого символа и сохранение только цифр
+        for (let i = 0; i < inputValue.length; i++) {
+            let currentChar = inputValue[i];
+            if (currentChar >= '0' && currentChar <= '9') {
+                onlyNumbers += currentChar;
+            }
+        }
+    
+        let formattedValue = formatCardNumber(onlyNumbers);
         document.getElementById('card-number').textContent = formattedValue;
     });
 
@@ -97,8 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             formattedValue += value[i];
         }
-        while (formattedValue.replace(/\s/g, '').length < 16) {
-            if (formattedValue.replace(/\s/g, '').length % 4 === 0 && formattedValue.length > 0) {
+        while (formattedValue.split(' ').join('').length < 16) {
+            if (formattedValue.split(' ').join('').length % 4 === 0 && formattedValue.length > 0) {
                 formattedValue += ' ';
             }
             formattedValue += '#';
