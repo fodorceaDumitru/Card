@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cardBrand = document.getElementById('card-brand')
     const cvvHolderDisplay = document.querySelector('#cvv > h2');
     const revImgCvv = document.querySelector('.card-brand-rev')
+    const imgMoveDiv = document.querySelector('.logo-cards > div > div')
     const cardHolderDisplay2 = document.getElementById('holder');
 
 
@@ -19,19 +20,19 @@ document.addEventListener("DOMContentLoaded", function () {
         if (this.value.length === 1) {
             switch (this.value[0]) {
                 case ('5'):
-                    cardBrand.src = "img/card-type/mastercard.png";
+                    imgMoveDiv.style.marginTop = '0px'
                     revImgCvv.src = "img/card-type/mastercard.png"
                     break;
                 case ('4'):
-                    cardBrand.src = "img/card-type/visa.png";
+                    imgMoveDiv.style.marginTop = '-100px'
                     revImgCvv.src = "img/card-type/visa.png"
                     break;
                 case ('6'):
-                    cardBrand.src = "img/card-type/discover.png";
+                    imgMoveDiv.style.marginTop = '-170px'
                     revImgCvv.src = "img/card-type/discover.png"
                     break;
                 case ('3'):
-                    cardBrand.src = "img/card-type/amex.png";
+                    imgMoveDiv.style.marginTop = '-230px'
                     revImgCvv.src = "img/card-type/amex.png"
                     break;
             }
@@ -84,8 +85,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     document.getElementById('card-number-input').addEventListener('input', function () {
-        let inputValue = this.value.replace(/\D/g, '');
-        let formattedValue = formatCardNumber(inputValue);
+        let inputValue = this.value;
+        let onlyNumbers = '';
+    
+        for (let i = 0; i < inputValue.length; i++) {
+            let currentChar = inputValue[i];
+            if (currentChar >= '0' && currentChar <= '9') {
+                onlyNumbers += currentChar;
+            }
+        }
+    
+        let formattedValue = formatCardNumber(onlyNumbers);
         document.getElementById('card-number').textContent = formattedValue;
     });
 
@@ -97,8 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             formattedValue += value[i];
         }
-        while (formattedValue.replace(/\s/g, '').length < 16) {
-            if (formattedValue.replace(/\s/g, '').length % 4 === 0 && formattedValue.length > 0) {
+        while (formattedValue.split(' ').join('').length < 16) {
+            if (formattedValue.split(' ').join('').length % 4 === 0 && formattedValue.length > 0) {
                 formattedValue += ' ';
             }
             formattedValue += '#';

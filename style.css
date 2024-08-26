@@ -9,10 +9,10 @@ body {
     padding: 20px;
 }
 
-.brand {
+/* .brand {
     max-height: 50px;
     max-width: 100px;
-}
+} */
 
 .chip {
     max-height: 50px;
@@ -47,7 +47,7 @@ body {
     bottom: 440px;
     width: 360px;
     height: 200px;
-    background-image: url(../Card/img/card-background/6.jpeg);
+    background-image: url(img/card-background/6.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 12px;
@@ -68,7 +68,7 @@ body {
     bottom: 440px;
     width: 360px;
     height: 200px;
-    background-image: url(../Card/img/card-background/6.jpeg);
+    background-image: url(img/card-background/6.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 12px;
@@ -130,7 +130,20 @@ body {
     display: flex;
     justify-content: space-between;
 }
-
+.logo-cards > div  {
+overflow: hidden;
+    height: 70px;
+    width: 80px;
+}
+.logo-cards > div >div {
+    display: flex;
+    flex-direction: column;
+    width: 80px;
+transition: all 0.5s ease-in-out;
+}
+.logo-cards > div > div >img{
+margin-bottom: 40px;
+}
 .card-number {
     font-size: 1.5rem;
     letter-spacing: 6px;
