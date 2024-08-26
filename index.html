@@ -17,13 +17,15 @@
                     <img src="img/card-type/mastercard.png" class="brand" alt="Card Brand" id="card-brand">
                 </div>
                 <div class="card-number" id="card-number">#### #### #### ####</div>
-                <div class="card-details-subtitle">
-                    <span class="card-holder">Card Holder</span>
-                    <span class="card-expiry">Expires</span>
-                </div>
                 <div class="card-details">
-                    <span class="card-holder" id="card-holder">ION STOLER</span>
-                    <span class="card-expiry" id="card-expiry">MM/YY</span>
+                    <div class="holder" id="holder">
+                        <span class="card-subtitle">Card Holder</span>
+                        <span class="card-holder" id="card-holder">ION STOLER</span>
+                    </div>
+                    <div class="expiry" id="expiry">
+                        <span class="card-subtitle">Expires</span>
+                        <span class="card-expiry" id="card-expiry">MM/YY</span>
+                    </div>
                 </div>
             </div>
             <div class="cardBack">
@@ -34,7 +36,7 @@
                 </div>
                 <img src="img/card-type/discover.png" class="card-brand-rev" alt="">
             </div>
-    
+
         </div>
         <div class="container">
             <form class="card-form" id="card-form">
@@ -44,7 +46,7 @@
                 </div>
                 <div class="form-group">
                     <label for="card-holder-input">Card Name</label>
-                    <input type="text" id="card-holder-input" maxlength="45" placeholder="ION STOLER">
+                    <input type="text" id="card-holder-input" maxlength="30" placeholder="ION STOLER">
                 </div>
                 <div class="form-group">
                     <div class="card-info">

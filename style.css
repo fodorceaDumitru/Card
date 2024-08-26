@@ -43,7 +43,7 @@ body {
 }
 
 .card {
-    position: absolute;
+    margin-bottom: -240px;
     bottom: 440px;
     width: 360px;
     height: 200px;
@@ -62,8 +62,9 @@ body {
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
-.cardBack{
-    position: absolute;
+
+.cardBack {
+    margin-bottom: -130px;
     bottom: 440px;
     width: 360px;
     height: 200px;
@@ -78,20 +79,22 @@ body {
     justify-content: space-between;
     align-items: end;
     transition: transform 0.5s;
-    /* transform-style: preserve-3d; */
+    transform-style: preserve-3d;
     box-shadow: 0 15px 8px rgba(0, 0, 0, 0.2);
     transform-style: preserve-3d;
     backface-visibility: hidden;
     transform: rotateY(180deg);
 }
-#black-line{
+
+#black-line {
     position: absolute;
     height: 50px;
     width: 100%;
     background-color: black;
     left: 0px;
 }
-#cvv{
+
+#cvv {
     margin-top: 50px;
     width: 100%;
     display: flex;
@@ -99,49 +102,69 @@ body {
     align-items: end;
     justify-content: center;
 }
-#cvv > h2{
+
+#cvv>h2 {
     display: flex;
     justify-content: end;
     align-items: center;
     font-size: 15px;
-color: black;
-background-color: white;
-width: 100%;
-height: 40px;
-border-radius: 3px;
-margin: 0;
-padding-right: 5px;
+    color: black;
+    background-color: white;
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    margin: 0;
+    padding-right: 5px;
 }
-#cvv > h5{
-margin-bottom: 10px;
+
+#cvv>h5 {
+    margin-bottom: 10px;
 }
-.cardBack > img{
+
+.cardBack>img {
     width: 100px;
     margin-bottom: 20px
 }
+
 .logo-cards {
     display: flex;
     justify-content: space-between;
 }
 
 .card-number {
-    font-size: 1.2rem;
-    letter-spacing: 0.2rem;
+    font-size: 1.5rem;
+    letter-spacing: 6px;
     margin-top: -25px;
     display: block;
+    text-align: center;
+
 }
 
-.marking{
-    border: 1px solid white
+.marking {
+    border: 1px solid white;
+    padding: 3px;
+    transition: .5s;
+    position: relative;
+    border-radius: 4px;
 }
 
-.card-details-subtitle {
-    letter-spacing: 2.5px;
-    margin-bottom: -55px;
-    width: 360px;
+.holder {
     display: flex;
-    justify-content: space-between;
-    font-size: 0.5rem;
+    flex-direction: column;
+    padding-right: 10px;
+    position: relative;
+}
+
+.expiry {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.card-subtitle {
+    letter-spacing: 3px;
+    font-size: 0.6rem;
+
 }
 
 .card-details {
@@ -149,7 +172,9 @@ margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 500;
+    letter-spacing: 2px;
+    position: sticky;
 }
 
 .card-form {
