@@ -6,11 +6,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const cardCvvInput = document.getElementById('card-cvv-input');
 
     const cardNumberDisplay = document.getElementById('card-number');
-    const cardHolderDisplay = document.getElementById('holder');
+    const cardHolderDisplay = document.getElementById('card-holder');
     const cardExpiryDisplay = document.getElementById('expiry');
     const cardBrand = document.getElementById('card-brand')
     const cvvHolderDisplay = document.querySelector('#cvv > h2');
     const revImgCvv = document.querySelector('.card-brand-rev')
+    const cardHolderDisplay2 = document.getElementById('holder');
 
 
     cardNumberInput.addEventListener('input', function () {
@@ -38,12 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     cardNumberInput.addEventListener('click', () => {
         cardNumberDisplay.classList.add('marking')
-        cardHolderDisplay.classList.remove('marking')
+        cardHolderDisplay2.classList.remove('marking')
         cardExpiryDisplay.classList.remove('marking')
 
     })
     cardHolderInput.addEventListener('click', () => {
-        cardHolderDisplay.classList.add('marking')
+        cardHolderDisplay2.classList.add('marking')
         cardNumberDisplay.classList.remove('marking')
         cardExpiryDisplay.classList.remove('marking')
     })
