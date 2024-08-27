@@ -148,9 +148,12 @@ margin-bottom: 40px;
     font-size: 1.5rem;
     letter-spacing: 6px;
     margin-top: -25px;
-    display: block;
-    text-align: center;
-
+    /* text-align: center; */
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    letter-spacing: 2px;
+    overflow: hidden;
 }
 
 .marking {
@@ -275,4 +278,27 @@ margin-bottom: 40px;
 
 .submit-button:hover {
     background-color: #0056b3;
+}
+
+
+
+.digit {
+    display: inline-block;
+    width: 20px;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.digit span {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+#space{
+    width: 10px;
 }

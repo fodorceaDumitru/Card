@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const cardNumberInput = document.getElementById('card-number-input');
+    const cardNumberInput = document.querySelector('#card-number-input');
     const cardHolderInput = document.getElementById('card-holder-input');
     const cardExpiryMonth = document.getElementById('card-expiry-month');
     const cardExpiryYear = document.getElementById('card-expiry-year');
@@ -8,36 +8,78 @@ document.addEventListener("DOMContentLoaded", function () {
     const cardNumberDisplay = document.getElementById('card-number');
     const cardHolderDisplay = document.getElementById('card-holder');
     const cardExpiryDisplay = document.getElementById('expiry');
-    const cardBrand = document.getElementById('card-brand')
+    const cardExpiry = document.getElementById('card-expiry');
     const cvvHolderDisplay = document.querySelector('#cvv > h2');
     const revImgCvv = document.querySelector('.card-brand-rev')
     const imgMoveDiv = document.querySelector('.logo-cards > div > div')
     const cardHolderDisplay2 = document.getElementById('holder');
 
-
-    cardNumberInput.addEventListener('input', function () {
-        cardNumberDisplay.textContent = formatCardNumber(this.value);
-        if (this.value.length === 1) {
-            switch (this.value[0]) {
-                case ('5'):
-                    imgMoveDiv.style.marginTop = '0px'
-                    revImgCvv.src = "img/card-type/mastercard.png"
-                    break;
-                case ('4'):
-                    imgMoveDiv.style.marginTop = '-100px'
-                    revImgCvv.src = "img/card-type/visa.png"
-                    break;
-                case ('6'):
-                    imgMoveDiv.style.marginTop = '-170px'
-                    revImgCvv.src = "img/card-type/discover.png"
-                    break;
-                case ('3'):
-                    imgMoveDiv.style.marginTop = '-230px'
-                    revImgCvv.src = "img/card-type/amex.png"
-                    break;
+    const digits = document.querySelectorAll('.digit span');
+    let previousValue = "";
+    
+    
+        cardNumberInput.addEventListener('input',  ev => {
+            // cardNumberDisplay.textContent = formatCardNumber(this.value);
+            console.log(digits[0].textContent);
+            if (digits[0].textContent !== "#") {
+                switch (digits[0].textContent) {
+                    case ('5'):
+                        imgMoveDiv.style.marginTop = '0px'
+                        revImgCvv.src = "img/card-type/mastercard.png"
+                        break;
+                    case ('4'):
+                        imgMoveDiv.style.marginTop = '-100px'
+                        revImgCvv.src = "img/card-type/visa.png"
+                        break;
+                    case ('6'):
+                        imgMoveDiv.style.marginTop = '-170px'
+                        revImgCvv.src = "img/card-type/discover.png"
+                        break;
+                    case ('3'):
+                        imgMoveDiv.style.marginTop = '-230px'
+                        revImgCvv.src = "img/card-type/amex.png"
+                        break;
+                }
             }
-        }
-    });
+
+            const input = cardNumberInput.value;
+            let filteredInput = "";
+            for (let i = 0; i < input.length; i++) {
+                const char = input[i];
+                if (!isNaN(char) && char !== " ") {
+                    filteredInput += char;
+                }
+            }
+            cardNumberInput.value = filteredInput;
+        
+        
+            filteredInput.split('').forEach((char, index) => {
+                const digit = digits[index];  
+        
+                if (digit && char !== previousValue[index]) {
+                    digit.style.transform = `translateY(-100%)`;  
+                    setTimeout(() => {
+                        digit.textContent = char; 
+                        digit.style.transform = `translateY(0)`; 
+                    }, 300);
+                }
+            });
+        
+            for (let i = filteredInput.length; i < digits.length; i++) {
+                const digit = digits[i];
+                if (digit && digit.textContent !== '#') {
+                    digit.style.transform = `translateY(-100%)`;
+                    setTimeout(() => {
+                        digit.textContent = '#'; 
+                        digit.style.transform = `translateY(0)`;
+                    }, 300);
+                }
+            }
+            previousValue = filteredInput;
+        });
+        
+
+       
     cardNumberInput.addEventListener('click', () => {
         cardNumberDisplay.classList.add('marking')
         cardHolderDisplay2.classList.remove('marking')
@@ -84,41 +126,8 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
 
-    document.getElementById('card-number-input').addEventListener('input', function () {
-        let inputValue = this.value;
-        let onlyNumbers = '';
-    
-        for (let i = 0; i < inputValue.length; i++) {
-            let currentChar = inputValue[i];
-            if (currentChar >= '0' && currentChar <= '9') {
-                onlyNumbers += currentChar;
-            }
-        }
-    
-        let formattedValue = formatCardNumber(onlyNumbers);
-        document.getElementById('card-number').textContent = formattedValue;
-    });
-
-    function formatCardNumber(value) {
-        let formattedValue = '';
-        for (let i = 0; i < value.length; i++) {
-            if (i > 0 && i % 4 === 0) {
-                formattedValue += ' ';
-            }
-            formattedValue += value[i];
-        }
-        while (formattedValue.split(' ').join('').length < 16) {
-            if (formattedValue.split(' ').join('').length % 4 === 0 && formattedValue.length > 0) {
-                formattedValue += ' ';
-            }
-            formattedValue += '#';
-        }
-        return formattedValue
-    }
-
     function updateExpiryDate() {
         const month = cardExpiryMonth.value === "MM" ? "MM" : cardExpiryMonth.value;
         const year = cardExpiryYear.value === "YY" ? "YY" : cardExpiryYear.value;
-        cardExpiryDisplay.textContent = `${month}/${year}`;
-    }
-});
+        cardExpiry.textContent = `${month}/${year}`;
+    } });
